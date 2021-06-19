@@ -30,7 +30,8 @@ export default {
 </script>
 <style lang="scss">
 #components-layout-demo-custom-trigger {
-   .trigger {
+    min-height: 100vh;
+    .trigger {
         font-size: 18px;
         line-height: 64px;
         padding: 0 24px;
