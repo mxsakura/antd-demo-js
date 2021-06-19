@@ -1,11 +1,11 @@
 <template>
   <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-    <div class="logo" style="text-align:center;"><img alt="Vue logo" src="../../../assets/logo.png" style="height:30px;"></div>
+    <div class="logo"/>
     <a-menu theme="dark" mode="inline" v-model="menus" :default-selected-keys="[activeMenu]" :default-open-keys="openSubMenus">
       <template v-for="item in list">
         <template v-if="!item.hidden&&item.children">
           <a-menu-item v-if="item.children.length<2" :key="item.children[0].path" @click="routerHandler(item.children[0].path)">
-            <a-icon type="pie-chart" />
+            <a-icon v-if="item.children[0].mate.icon" :type="item.children[0].mate.icon" />
             <span>{{ item.children[0].mate.title }}</span>
           </a-menu-item>
           <sub-menu v-else :key="item.path" :menu-info="item" />
@@ -49,9 +49,6 @@ export default {
       }
       return menus;
     }
-  },
-  created() {
-    console.log(this.openSubMenus);
   },
   updated() {
     if (this.menus != this.openSubMenus) {

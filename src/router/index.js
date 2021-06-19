@@ -14,42 +14,40 @@ const routes = [
     path: '/',
     redirect: '/dashboard',
     component: Layout,
-    children: [{
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      mate: { title: '仪表板' }
-    }]
+    children: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        mate: { title: '仪表板', icon: 'dashboard' }
+      }
+    ]
   },
   {
     path: '/about',
-    mate: { title: '关于' },
+    mate: { title: '更多信息', icon: 'menu-unfold' },
     component: Layout,
-    redirect: '/about/index',
-    children: [{
-      path: '/about/index',
-      name: 'About',
-      component: () => import('@/views/about/index'),
-      mate: { title: '关于Index' }
-    },
-    {
-      path: '/about/a',
-      name: 'A',
-      redirect: '/about/a/c',
-      component: () => import('@/views/about/a'),
-      mate: { title: '关于A' },
-      children: [{
-        path: '/about/a/c',
-        name: 'C',
-        component: () => import('@/views/about/c'),
-        mate: { title: '关于C' }
-      }]
-    }, {
-      path: '/about/b',
-      name: 'B',
-      component: () => import('@/views/about/b'),
-      mate: { title: '关于B' }
-    },
+    redirect: '/about/classifya',
+    children: [
+      {
+        path: '/about/classifya',
+        name: 'Classifya',
+        component: () => import('@/views/about/classifya/index'),
+        redirect: '/about/classifya/classifyc',
+        mate: { title: '省份', icon: 'unordered-list' },
+        children: [{
+          path: '/about/classifya/classifyc',
+          name: 'Classifyc',
+          component: () => import('@/views/about/classifya/classifyc/index'),
+          mate: { title: '湖北' }
+        }]
+      },
+      {
+        path: '/about/classifyb',
+        name: 'Classifyb',
+        component: () => import('@/views/about/classifyb/index'),
+        mate: { title: '合作', icon: 'smile' }
+      }
     ]
   }
 ]

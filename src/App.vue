@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<style lang="scss">
-#nprogress .bar {
-    background: rgb(0, 197, 115) !important; //自定义颜色
+<style lang="scss" scoped>
+#app {
+    min-height: 100%;
 }
 </style>
