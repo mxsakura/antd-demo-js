@@ -34,7 +34,7 @@ const routes = [
         name: 'Classifya',
         component: () => import('@/views/about/classifya/index'),
         redirect: '/about/classifya/classifyc',
-        mate: { title: '省份', icon: 'unordered-list' },
+        mate: { title: '省份列表', icon: 'unordered-list' },
         children: [{
           path: '/about/classifya/classifyc',
           name: 'Classifyc',
