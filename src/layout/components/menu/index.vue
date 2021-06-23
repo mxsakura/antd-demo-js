@@ -1,7 +1,7 @@
 <template>
-  <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-    <div class="logo"/>
-    <a-menu theme="dark" mode="inline" v-model="menus" :default-selected-keys="[activeMenu]" :default-open-keys="openSubMenus">
+  <a-layout-sider :theme="theme" v-model="collapsed" :trigger="null" collapsible>
+    <div class="logo" />
+    <a-menu :theme="theme" mode="inline" v-model="menus" :default-selected-keys="[activeMenu]" :default-open-keys="openSubMenus">
       <template v-for="item in list">
         <template v-if="!item.hidden&&item.children">
           <a-menu-item v-if="item.children.length<2" :key="item.children[0].path" @click="routerHandler(item.children[0].path)">
@@ -25,6 +25,10 @@ export default {
     collapsed: {
       type: Boolean,
       default: false,
+    },
+    theme: {
+      type: String,
+      default: 'light'
     }
   },
   data() {
@@ -62,3 +66,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ant-layout-sider {
+    height: 100vh;
+    &:hover {
+        overflow-y: auto;
+    }
+}
+</style>
