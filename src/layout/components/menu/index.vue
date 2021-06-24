@@ -5,8 +5,8 @@
       <template v-for="item in list">
         <template v-if="!item.hidden&&item.children">
           <a-menu-item v-if="item.children.length<2" :key="item.children[0].path" @click="routerHandler(item.children[0].path)">
-            <a-icon v-if="item.children[0].mate.icon" :type="item.children[0].mate.icon" />
-            <span>{{ item.children[0].mate.title }}</span>
+            <a-icon v-if="item.children[0].meta.icon" :type="item.children[0].meta.icon" />
+            <span>{{ item.children[0].meta.title }}</span>
           </a-menu-item>
           <sub-menu v-else :key="item.path" :menu-info="item" />
         </template>

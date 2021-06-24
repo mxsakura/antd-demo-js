@@ -23,16 +23,15 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['number'])
+    // ...mapGetters(['number'])
   },
   mounted() {
-    this.$store.dispatch('setNumber', 10).then(() => {
-      console.log(this.number)
-    })
-
+    // this.$store.dispatch('setNumber', 10).then(() => {
+    //   console.log(this.number)
+    // })
   }
 
 }

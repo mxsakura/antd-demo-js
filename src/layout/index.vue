@@ -15,6 +15,7 @@
 </template>
 <script>
 import Menu from './components/menu'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     Menu
@@ -25,7 +26,8 @@ export default {
     };
   },
   computed: {
-  }
+    ...mapGetters(['MenuCollapsed'])
+  },
 };
 </script>
 <style lang="scss">

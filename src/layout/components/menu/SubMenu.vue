@@ -1,12 +1,12 @@
 <template>
   <a-sub-menu :key="menuInfo.key" v-bind="$props" v-on="$listeners">
     <span slot="title">
-      <a-icon v-if="menuInfo.mate.icon" :type="menuInfo.mate.icon" /><span>{{ menuInfo.mate.title }}</span>
+      <a-icon v-if="menuInfo.meta.icon" :type="menuInfo.meta.icon" /><span>{{ menuInfo.meta.title }}</span>
     </span>
     <template v-for="item in menuInfo.children">
       <a-menu-item v-if="!item.children" :key="item.path" @click="routerHandler(item.path)">
-        <a-icon v-if="item.mate.icon" :type="item.mate.icon" />
-        <span>{{ item.mate.title }}</span>
+        <a-icon v-if="item.meta.icon" :type="item.meta.icon" />
+        <span>{{ item.meta.title }}</span>
       </a-menu-item>
       <sub-menu v-else :key="item.path" :menu-info="item" />
     </template>

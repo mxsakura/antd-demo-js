@@ -5,36 +5,29 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    number: 1
   },
   mutations: {
-    SET_NUMBER: (state, number) => {
-      state.number = number
-    }
   },
   actions: {
-    setNumber: ({ commit }, number) => {
-      return commit('SET_NUMBER', number)
-    }
   },
   modules: {
-    book: {
+    MenuCollapsed: {
       state: {
-        number: 1
+        collapsed: false
       },
       mutations: {
-        SET_NUMBER: (state, number) => {
-          state.number = number
+        SET_COLLAPSED: (state, bool) => {
+          state.collapsed = bool
         }
       },
       actions: {
-        setNumber: ({ commit }, number) => {
-          return commit('SET_NUMBER', number)
+        setCollapsed: ({ commit }, bool) => {
+          return commit('SET_COLLAPSED', bool)
         }
       }
     }
   },
   getters: {
-    number: state => state.book.number
+    MenuCollapsed: state => state.MenuCollapsed.collapsed
   }
 })
